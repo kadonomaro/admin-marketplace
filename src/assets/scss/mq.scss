@@ -1,0 +1,58 @@
+$media-queries: true;
+
+$bp-mobile-sm: 360px;
+$bp-mobile-md: 479px;
+$bp-mobile-lg: 540px;
+$bp-tablet: 767px;
+$bp-desktop-sm: 992px;
+$bp-desktop-md: 1239px;
+$bp-desktop-lg: 1365px;
+
+$bp-850h: 850px;
+$bp-desktop-sm_max: 991px;
+$bp-mobile-sm_max: 480px;
+
+@mixin bp($point) {
+
+    @if $point == $bp-mobile-sm {
+        @media only screen and (min-width: #{$bp-mobile-sm}) {
+            @content;
+        }
+    }
+
+    @if $point == $bp-mobile-md {
+        @media only screen and (min-width: #{$bp-mobile-md}) {
+            @content;
+        }
+    }
+
+    @if $point == $bp-mobile-lg {
+        @media only screen and (min-width: #{$bp-mobile-lg}) {
+            @content;
+        }
+    }
+
+    @if $point == $bp-tablet {
+        @media only screen and (min-width: #{$bp-tablet}) {
+            @content;
+        }
+    }
+
+    @if $point == $bp-desktop-sm {
+        @media only screen and (min-width: #{$bp-desktop-sm}) {
+            @content;
+        }
+    }
+
+    @if $point == $bp-desktop-md {
+        @media only screen and (min-width: #{$bp-desktop-md}) {
+            @content;
+        }
+    }
+
+    @if $point == $bp-desktop-lg {
+        @media only screen and (min-width: #{$bp-desktop-lg}) {
+            @content;
+        }
+    }
+}
