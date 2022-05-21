@@ -12,13 +12,22 @@ const routes = [
         component: Dashboard,
     },
     {
-        path: "/about",
-        name: "About",
+        path: "/content",
+        name: "Content",
         meta: {
             layout: "Main",
             requiresAuth: true,
         },
-        component: () => import("../pages/About.vue"),
+        component: () => import("../pages/Content.vue"),
+    },
+    {
+        path: "/pages",
+        name: "Pages",
+        meta: {
+            layout: "Main",
+            requiresAuth: true,
+        },
+        component: () => import("../pages/Pages.vue"),
     },
 ];
 const router = createRouter({

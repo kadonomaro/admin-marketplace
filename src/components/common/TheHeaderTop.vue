@@ -10,5 +10,6 @@
 
 <style lang="scss">
     .the-header-top {
+        border-bottom: 1px solid $primary-border;
     }
 </style>

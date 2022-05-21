@@ -1,7 +1,7 @@
 <script setup>
+    import { computed, onMounted } from "vue";
     import TheHeaderTop from "@/components/common/TheHeaderTop.vue";
     import TheHeaderMain from "@/components/common/TheHeaderMain.vue";
-    import { computed, onMounted } from "vue";
 
     const props = defineProps({
         test: String,
@@ -16,10 +16,13 @@
 
 <template>
     <header class="the-header">
-        {{ test }}
         <the-header-top></the-header-top>
         <the-header-main></the-header-main>
     </header>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+    .the-header {
+        box-shadow: 0 10px 10px rgba(#5f718d, 0.15);
+    }
+</style>
