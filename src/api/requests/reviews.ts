@@ -1,10 +1,11 @@
+import { IReview } from "../types/reviews";
+
 export const reviewsApi = (api) => {
     return {
         /**
          * Get all reviews
-         * @return {Promise<Object[]>}
          */
-        async getAll() {
+        async getAll(): Promise<IReview> {
             return api.get("api/reviews").then(({ data }) => data);
         },
 
@@ -28,10 +29,9 @@ export const reviewsApi = (api) => {
 
         /**
          * Delete review by ID
-         * @param { String | Number } id
          * @return {Promise<Object>}
          */
-        async delete(id) {
+        async delete(id: string | number) {
             return api.delete(`api/reviews/${id}`).then(({ data }) => data);
         },
     };

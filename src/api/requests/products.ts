@@ -1,19 +1,19 @@
+import { IProduct } from "../types/products";
+
 export const productsApi = (api) => {
     return {
         /**
          * Get all products
-         * @return {Promise<Object[]>}
          */
-        async getAll() {
+        async getAll(): Promise<IProduct[]> {
             return api.get("api/products").then(({ data }) => data);
         },
 
         /**
          * Get product by ID
-         * @param { String | Number }id
          * @return {Promise<Object>}
          */
-        async getOne(id) {
+        async getOne(id: string | number): Promise<IProduct> {
             return api.get(`api/products/${id}`).then(({ data }) => data);
         },
 
@@ -37,10 +37,9 @@ export const productsApi = (api) => {
 
         /**
          * Delete product by ID
-         * @param { String | Number } id
          * @return {Promise<Object>}
          */
-        async delete(id) {
+        async delete(id: string | number) {
             return api.delete(`api/products/${id}`).then(({ data }) => data);
         },
     };

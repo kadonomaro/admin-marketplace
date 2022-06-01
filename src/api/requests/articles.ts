@@ -1,10 +1,11 @@
+import { IArticle } from "../types/articles";
+
 export const articlesApi = (api) => {
     return {
         /**
          * Get all articles
-         * @return {Promise<Object[]>}
          */
-        async getAll() {
+        async getAll(): Promise<IArticle[]> {
             return api.get("api/articles").then(({ data }) => data);
         },
 

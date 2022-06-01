@@ -1,11 +1,11 @@
+import { IPage } from "../types/pages";
+
 export const pagesApi = (api) => {
     return {
         /**
          * Get page by slug
-         * @param { String } slug
-         * @return {Promise<Object>}
          */
-        async getOne(slug) {
+        async getOne(slug: string): Promise<IPage> {
             return api.get(`api/pages/${slug}`).then(({ data }) => data);
         },
 
@@ -29,10 +29,8 @@ export const pagesApi = (api) => {
 
         /**
          * Delete page by ID
-         * @param { String | Number } id
-         * @return {Promise<Object>}
          */
-        async delete(id) {
+        async delete(id: string | number): Promise<IPage> {
             return api.put(`api/pages${id}`).then(({ data }) => data);
         },
     };

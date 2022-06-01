@@ -7,4 +7,9 @@ import "@/assets/scss/index.scss";
 const app = createApp(App);
 
 app.use(router).mount("#app");
-app.provide("$api", initApi("http://localhost:8000"));
+
+/*
+http://localhost:8000
+https://api-marketplace-pi.vercel.app
+ */
+app.provide("$api", initApi("https://api-marketplace-pi.vercel.app"));

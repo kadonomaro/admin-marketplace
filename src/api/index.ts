@@ -1,10 +1,10 @@
 import axios from "axios";
-import { productsApi } from "@/api/requests/products";
-import { reviewsApi } from "@/api/requests/reviews";
-import { articlesApi } from "@/api/requests/articles";
-import { pagesApi } from "@/api/requests/pages";
+import { productsApi } from "./requests/products";
+import { reviewsApi } from "./requests/reviews";
+import { articlesApi } from "./requests/articles";
+import { pagesApi } from "./requests/pages";
 
-const createApi = (baseURL) => {
+const createApi = (baseURL: string) => {
     return axios.create({ baseURL });
 };
 
@@ -17,6 +17,6 @@ const setupApi = (api) => {
     };
 };
 
-export const initApi = (baseURL) => {
+export const initApi = (baseURL: string) => {
     return setupApi(createApi(baseURL));
 };
