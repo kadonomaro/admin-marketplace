@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import TheNavigation from "../components/TheNavigation.vue";
+    import TheNavigation from "@/components/TheNavigation.vue";
 </script>
 
 <template>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
     import { computed, PropType, ref } from "vue";
-    import TheIcon from "./TheIcon.vue";
-    import BaseCheckbox from "./ui/BaseCheckbox.vue";
+    import TheIcon from "@/components/TheIcon.vue";
+    import BaseCheckbox from "@/components/ui/BaseCheckbox.vue";
 
     const props = defineProps({
         entities: {

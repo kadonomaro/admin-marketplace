@@ -1,7 +1,7 @@
 <script setup lang="ts">
     import { computed, onMounted } from "vue";
-    import TheHeaderTop from "../components/TheHeaderTop.vue";
-    import TheHeaderMain from "../components/TheHeaderMain.vue";
+    import TheHeaderTop from "@/components/TheHeaderTop.vue";
+    import TheHeaderMain from "@/components/TheHeaderMain.vue";
 
     const props = defineProps({
         test: String,

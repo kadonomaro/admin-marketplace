@@ -1,8 +1,8 @@
 <script setup lang="ts">
     import { inject, onMounted, ref } from "vue";
-    import ContentTable from "../components/ContentTable.vue";
-    import ContentWrapper from "../components/ContentWrapper.vue";
-    import { Article } from "../types/articles";
+    import ContentTable from "@/components/ContentTable.vue";
+    import ContentWrapper from "@/components/ContentWrapper.vue";
+    import { Article } from "@/types/articles";
 
     const $api: any = inject("$api");
     const articles = ref<Article[]>([]);

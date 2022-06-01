@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import TheIcon from "../components/TheIcon.vue";
+    import TheIcon from "@/components/TheIcon.vue";
 
     const list = [
         { title: "Dashboard", url: "Dashboard", icon: "arrow" },

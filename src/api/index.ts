@@ -1,9 +1,8 @@
 import axios, { AxiosInstance } from "axios";
-import { productsApi } from "./requests/products";
-import { reviewsApi } from "./requests/reviews";
-import { articlesApi } from "./requests/articles";
-import { pagesApi } from "./requests/pages";
-import exp from "constants";
+import { productsApi } from "@/api/requests/products";
+import { reviewsApi } from "@/api/requests/reviews";
+import { articlesApi } from "@/api/requests/articles";
+import { pagesApi } from "@/api/requests/pages";
 
 export interface Api {
     products: object;
