@@ -1,5 +1,5 @@
 import { AxiosInstance } from "axios";
-import { Article } from "../types/articles";
+import { Article } from "../../types/articles";
 
 export const articlesApi = (api: AxiosInstance) => {
     return {
