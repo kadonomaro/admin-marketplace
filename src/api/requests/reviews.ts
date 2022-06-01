@@ -6,7 +6,7 @@ export const reviewsApi = (api) => {
          * Get all reviews
          */
         async getAll(): Promise<IReview> {
-            return api.get("api/reviews").then(({ data }) => data);
+            return await api.get("api/reviews").then(({ data }) => data);
         },
 
         /**
@@ -15,7 +15,7 @@ export const reviewsApi = (api) => {
          * @return {Promise<Object>}
          */
         async create({ data }) {
-            return api.post("api/reviews", { data }).then(({ data }) => data);
+            return await api.post("api/reviews", { data }).then(({ data }) => data);
         },
 
         /**
@@ -24,7 +24,7 @@ export const reviewsApi = (api) => {
          * @return {Promise<Object>}
          */
         async update({ data }) {
-            return api.put("api/reviews", { data }).then(({ data }) => data);
+            return await api.put("api/reviews", { data }).then(({ data }) => data);
         },
 
         /**
@@ -32,7 +32,7 @@ export const reviewsApi = (api) => {
          * @return {Promise<Object>}
          */
         async delete(id: string | number) {
-            return api.delete(`api/reviews/${id}`).then(({ data }) => data);
+            return await api.delete(`api/reviews/${id}`).then(({ data }) => data);
         },
     };
 };

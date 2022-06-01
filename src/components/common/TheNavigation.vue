@@ -3,14 +3,9 @@
 
     const list = [
         { title: "Dashboard", url: "Dashboard", icon: "arrow" },
-        { title: "Content", url: "Content", icon: "arrow" },
-        { title: "Pages", url: "Pages", icon: "arrow" },
-        { title: "New", url: "Pages", icon: "new" },
-        { title: "Download", url: "Pages", icon: "download" },
-        { title: "Upload", url: "Pages", icon: "upload" },
-        { title: "Trash", url: "Pages", icon: "trash" },
-        { title: "Plus", url: "Pages", icon: "plus" },
-        { title: "Minus", url: "Pages", icon: "minus" },
+        { title: "Товары", url: "Products", icon: "arrow" },
+        { title: "Статьи", url: "Articles", icon: "arrow" },
+        { title: "Отзывы", url: "Reviews", icon: "arrow" },
     ];
 </script>
 

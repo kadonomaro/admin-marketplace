@@ -12,13 +12,40 @@ const routes = [
         component: Dashboard,
     },
     {
-        path: "/content",
-        name: "Content",
+        path: "/products",
+        name: "Products",
         meta: {
             layout: "Main",
             requiresAuth: true,
         },
-        component: () => import("../pages/Content.vue"),
+        component: () => import("../pages/Products.vue"),
+    },
+    {
+        path: "/articles",
+        name: "Articles",
+        meta: {
+            layout: "Main",
+            requiresAuth: true,
+        },
+        component: () => import("../pages/Articles.vue"),
+    },
+    {
+        path: "/articles",
+        name: "Articles",
+        meta: {
+            layout: "Main",
+            requiresAuth: true,
+        },
+        component: () => import("../pages/Articles.vue"),
+    },
+    {
+        path: "/reviews",
+        name: "Reviews",
+        meta: {
+            layout: "Main",
+            requiresAuth: true,
+        },
+        component: () => import("../pages/Reviews.vue"),
     },
     {
         path: "/pages",

@@ -6,7 +6,7 @@ export const articlesApi = (api) => {
          * Get all articles
          */
         async getAll(): Promise<IArticle[]> {
-            return api.get("api/articles").then(({ data }) => data);
+            return await api.get("api/articles").then(({ data }) => data);
         },
 
         /**
@@ -15,7 +15,7 @@ export const articlesApi = (api) => {
          * @return {Promise<Object>}
          */
         async create({ data }) {
-            return api.post("api/articles", { data }).then(({ data }) => data);
+            return await api.post("api/articles", { data }).then(({ data }) => data);
         },
 
         /**
@@ -24,7 +24,7 @@ export const articlesApi = (api) => {
          * @return {Promise<Object>}
          */
         async update({ data }) {
-            return api.put("api/articles", { data }).then(({ data }) => data);
+            return await api.put("api/articles", { data }).then(({ data }) => data);
         },
 
         /**
@@ -33,7 +33,7 @@ export const articlesApi = (api) => {
          * @return {Promise<Object>}
          */
         async delete(id) {
-            return api.delete(`api/articles/${id}`).then(({ data }) => data);
+            return await api.delete(`api/articles/${id}`).then(({ data }) => data);
         },
     };
 };

@@ -6,7 +6,7 @@ export const pagesApi = (api) => {
          * Get page by slug
          */
         async getOne(slug: string): Promise<IPage> {
-            return api.get(`api/pages/${slug}`).then(({ data }) => data);
+            return await api.get(`api/pages/${slug}`).then(({ data }) => data);
         },
 
         /**
@@ -15,7 +15,7 @@ export const pagesApi = (api) => {
          * @return {Promise<Object>}
          */
         async create({ data }) {
-            return api.post("api/pages", { data }).then(({ data }) => data);
+            return await api.post("api/pages", { data }).then(({ data }) => data);
         },
 
         /**
@@ -24,14 +24,14 @@ export const pagesApi = (api) => {
          * @return {Promise<Object>}
          */
         async update({ data }) {
-            return api.put("api/pages", { data }).then(({ data }) => data);
+            return await api.put("api/pages", { data }).then(({ data }) => data);
         },
 
         /**
          * Delete page by ID
          */
         async delete(id: string | number): Promise<IPage> {
-            return api.put(`api/pages${id}`).then(({ data }) => data);
+            return await api.put(`api/pages${id}`).then(({ data }) => data);
         },
     };
 };

@@ -6,7 +6,7 @@ export const productsApi = (api) => {
          * Get all products
          */
         async getAll(): Promise<IProduct[]> {
-            return api.get("api/products").then(({ data }) => data);
+            return await api.get("api/products").then(({ data }) => data);
         },
 
         /**
@@ -14,7 +14,7 @@ export const productsApi = (api) => {
          * @return {Promise<Object>}
          */
         async getOne(id: string | number): Promise<IProduct> {
-            return api.get(`api/products/${id}`).then(({ data }) => data);
+            return await api.get(`api/products/${id}`).then(({ data }) => data);
         },
 
         /**
@@ -23,7 +23,7 @@ export const productsApi = (api) => {
          * @return {Promise<Object>}
          */
         async create({ data }) {
-            return api.post("api/products", { data }).then(({ data }) => data);
+            return await api.post("api/products", { data }).then(({ data }) => data);
         },
 
         /**
@@ -32,7 +32,7 @@ export const productsApi = (api) => {
          * @return {Promise<Object>}
          */
         async update({ data }) {
-            return api.put("api/products", { data }).then(({ data }) => data);
+            return await api.put("api/products", { data }).then(({ data }) => data);
         },
 
         /**
@@ -40,7 +40,7 @@ export const productsApi = (api) => {
          * @return {Promise<Object>}
          */
         async delete(id: string | number) {
-            return api.delete(`api/products/${id}`).then(({ data }) => data);
+            return await api.delete(`api/products/${id}`).then(({ data }) => data);
         },
     };
 };

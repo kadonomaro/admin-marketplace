@@ -1,5 +1,7 @@
 <script setup>
     import { inject, onMounted, ref } from "vue";
+    import ContentTable from "@/components/ContentTable.vue";
+    import ContentWrapper from "@/components/ContentWrapper.vue";
 
     const $api = inject("$api");
     const products = ref([]);
@@ -12,12 +14,7 @@
 </script>
 
 <template>
-    <div class="content-page">
-        <h1>content-page</h1>
-        <div class="products">
-            <div class="product" v-for="product in products" :key="product._id">
-                {{ product.name }} - {{ product.price }}
-            </div>
-        </div>
-    </div>
+    <content-wrapper title="Товары">
+        <content-table :entities="products"></content-table>
+    </content-wrapper>
 </template>

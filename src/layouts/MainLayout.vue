@@ -35,6 +35,7 @@
 
     .main-layout__main {
         @include bp($bp-desktop-sm) {
+            flex-grow: 1;
             padding: 12px 24px;
         }
     }
