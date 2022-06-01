@@ -9,6 +9,15 @@ body {
     overflow: hidden;
 }
 
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    opacity: 0;
+}
+
 .container {
     max-width: 1260px;
     margin: 0 auto;

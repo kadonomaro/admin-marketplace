@@ -2,7 +2,7 @@
     import { inject, onMounted, ref } from "vue";
     import ContentTable from "../components/ContentTable.vue";
     import ContentWrapper from "../components/ContentWrapper.vue";
-    import { Product } from "../api/types/products";
+    import { Product } from "../types/products";
 
     const $api: any = inject("$api");
     const products = ref<Product[]>([]);
