@@ -1,11 +1,12 @@
-import { IReview } from "../types/reviews";
+import { AxiosInstance } from "axios";
+import { Review } from "../types/reviews";
 
-export const reviewsApi = (api) => {
+export const reviewsApi = (api: AxiosInstance) => {
     return {
         /**
          * Get all reviews
          */
-        async getAll(): Promise<IReview> {
+        async getAll(): Promise<Review> {
             return await api.get("api/reviews").then(({ data }) => data);
         },
 
@@ -14,7 +15,7 @@ export const reviewsApi = (api) => {
          * @param { Object } data
          * @return {Promise<Object>}
          */
-        async create({ data }) {
+        async create({ data }: any) {
             return await api.post("api/reviews", { data }).then(({ data }) => data);
         },
 
@@ -23,7 +24,7 @@ export const reviewsApi = (api) => {
          * @param { Object } data
          * @return {Promise<Object>}
          */
-        async update({ data }) {
+        async update({ data }: any) {
             return await api.put("api/reviews", { data }).then(({ data }) => data);
         },
 

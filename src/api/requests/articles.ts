@@ -1,11 +1,12 @@
-import { IArticle } from "../types/articles";
+import { AxiosInstance } from "axios";
+import { Article } from "../types/articles";
 
-export const articlesApi = (api) => {
+export const articlesApi = (api: AxiosInstance) => {
     return {
         /**
          * Get all articles
          */
-        async getAll(): Promise<IArticle[]> {
+        async getAll(): Promise<Article[]> {
             return await api.get("api/articles").then(({ data }) => data);
         },
 
@@ -14,7 +15,7 @@ export const articlesApi = (api) => {
          * @param { Object } data
          * @return {Promise<Object>}
          */
-        async create({ data }) {
+        async create({ data }: any) {
             return await api.post("api/articles", { data }).then(({ data }) => data);
         },
 
@@ -23,16 +24,15 @@ export const articlesApi = (api) => {
          * @param { Object } data
          * @return {Promise<Object>}
          */
-        async update({ data }) {
+        async update({ data }: any) {
             return await api.put("api/articles", { data }).then(({ data }) => data);
         },
 
         /**
          * Delete article by ID
-         * @param { String | Number } id
          * @return {Promise<Object>}
          */
-        async delete(id) {
+        async delete(id: string | number) {
             return await api.delete(`api/articles/${id}`).then(({ data }) => data);
         },
     };

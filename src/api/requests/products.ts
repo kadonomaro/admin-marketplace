@@ -1,11 +1,12 @@
-import { IProduct } from "../types/products";
+import { AxiosInstance } from "axios";
+import { Product } from "../types/products";
 
-export const productsApi = (api) => {
+export const productsApi = (api: AxiosInstance) => {
     return {
         /**
          * Get all products
          */
-        async getAll(): Promise<IProduct[]> {
+        async getAll(): Promise<Product[]> {
             return await api.get("api/products").then(({ data }) => data);
         },
 
@@ -13,7 +14,7 @@ export const productsApi = (api) => {
          * Get product by ID
          * @return {Promise<Object>}
          */
-        async getOne(id: string | number): Promise<IProduct> {
+        async getOne(id: string | number): Promise<Product> {
             return await api.get(`api/products/${id}`).then(({ data }) => data);
         },
 
@@ -22,7 +23,7 @@ export const productsApi = (api) => {
          * @param { Object } data
          * @return {Promise<Object>}
          */
-        async create({ data }) {
+        async create({ data }: any) {
             return await api.post("api/products", { data }).then(({ data }) => data);
         },
 
@@ -31,7 +32,7 @@ export const productsApi = (api) => {
          * @param { Object } data
          * @return {Promise<Object>}
          */
-        async update({ data }) {
+        async update({ data }: any) {
             return await api.put("api/products", { data }).then(({ data }) => data);
         },
 

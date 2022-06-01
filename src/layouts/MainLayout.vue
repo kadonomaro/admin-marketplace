@@ -1,5 +1,5 @@
-<script setup>
-    import TheSidebar from "@/components/common/TheSidebar.vue";
+<script setup lang="ts">
+    import TheSidebar from "../components/TheSidebar.vue";
 </script>
 
 <template>
@@ -28,8 +28,8 @@
         @include bp($bp-desktop-sm) {
             position: sticky;
             top: 16px;
-            flex-basis: 240px;
-            max-width: 240px;
+            flex-basis: 320px;
+            max-width: 320px;
         }
     }
 

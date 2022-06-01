@@ -1,9 +1,5 @@
-<script>
-    import TheNavigation from "@/components/common/TheNavigation.vue";
-    export default {
-        name: "TheSidebar",
-        components: { TheNavigation },
-    };
+<script setup lang="ts">
+    import TheNavigation from "../components/TheNavigation.vue";
 </script>
 
 <template>

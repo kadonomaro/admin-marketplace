@@ -1,8 +1,4 @@
-<script>
-    export default {
-        name: "TheHeaderTop",
-    };
-</script>
+<script setup lang="ts"></script>
 
 <template>
     <div class="the-header-top">header-top</div>

@@ -1,10 +1,10 @@
 <script setup lang="ts">
-    import { computed, defineProps, ref } from "vue";
-    import TheIcon from "./common/TheIcon.vue";
+    import { computed, defineProps, PropType, ref } from "vue";
+    import TheIcon from "./TheIcon.vue";
 
     const props = defineProps({
         entities: {
-            type: Object,
+            type: Object as PropType<any>,
             required: true,
             default: () => ({}),
         },

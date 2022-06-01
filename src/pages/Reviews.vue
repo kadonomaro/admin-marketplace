@@ -1,13 +1,14 @@
-<script setup>
+<script setup lang="ts">
     import { inject, onMounted, ref } from "vue";
-    import ContentTable from "@/components/ContentTable.vue";
-    import ContentWrapper from "@/components/ContentWrapper.vue";
+    import ContentTable from "../components/ContentTable.vue";
+    import ContentWrapper from "../components/ContentWrapper.vue";
+    import { Review } from "../api/types/reviews";
 
-    const $api = inject("$api");
-    const reviews = ref([]);
+    const $api: any = inject("$api");
+    const reviews = ref<Review[]>([]);
 
     onMounted(() => {
-        $api.reviews.getAll().then((response) => {
+        $api.reviews.getAll().then((response: Review[]) => {
             reviews.value = response;
         });
     });

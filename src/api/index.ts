@@ -1,14 +1,22 @@
-import axios from "axios";
+import axios, { AxiosInstance } from "axios";
 import { productsApi } from "./requests/products";
 import { reviewsApi } from "./requests/reviews";
 import { articlesApi } from "./requests/articles";
 import { pagesApi } from "./requests/pages";
+import exp from "constants";
 
-const createApi = (baseURL: string) => {
+export interface Api {
+    products: object;
+    reviews: object;
+    articles: object;
+    pages: object;
+}
+
+const createApi = (baseURL: string): AxiosInstance => {
     return axios.create({ baseURL });
 };
 
-const setupApi = (api) => {
+const setupApi = (api: AxiosInstance): Api => {
     return {
         products: productsApi(api),
         reviews: reviewsApi(api),

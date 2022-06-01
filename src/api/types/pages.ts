@@ -1,12 +1,12 @@
-export interface IPage {
+export interface Page {
     slug: string;
-    seo: IPageSeo;
+    seo: PageSeo;
     name?: string;
     content?: string;
     isActive: boolean;
 }
 
-interface IPageSeo {
+interface PageSeo {
     title: string;
     description?: string;
 }
