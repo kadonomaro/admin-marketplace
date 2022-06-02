@@ -3,6 +3,7 @@
 
     const list = [
         { title: "Dashboard", url: "Dashboard", icon: "arrow" },
+        { title: "Страницы", url: "Pages", icon: "arrow" },
         { title: "Товары", url: "Products", icon: "arrow" },
         { title: "Статьи", url: "Articles", icon: "arrow" },
         { title: "Отзывы", url: "Reviews", icon: "arrow" },

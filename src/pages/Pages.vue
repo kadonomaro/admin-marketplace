@@ -1,11 +1,22 @@
-<template>
-    <div class="pages-page">
-        <h1>pages-page</h1>
-    </div>
-</template>
+<script setup lang="ts">
+    import { inject, onMounted, ref } from "vue";
+    import ContentTable from "@/components/ContentTable.vue";
+    import ContentWrapper from "@/components/ContentWrapper.vue";
+    import { Page } from "@/types/pages";
+    import { Api } from "@/api";
 
-<style lang="scss">
-    .pages-page {
-        min-height: 200vh;
-    }
-</style>
+    const $api: Api = inject("$api");
+    const pages = ref<Page[]>([]);
+
+    onMounted(() => {
+        $api.pages.getAll().then((response: Page[]) => {
+            pages.value = response;
+        });
+    });
+</script>
+
+<template>
+    <content-wrapper title="Страницы">
+        <content-table :entities="pages"></content-table>
+    </content-wrapper>
+</template>
