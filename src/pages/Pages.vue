@@ -8,15 +8,19 @@
     const $api = inject("$api") as Api;
     const pages = ref<Page[]>([]);
 
+    const isLoading = ref(true);
+
     onMounted(() => {
         $api.pages.getAll().then((response: Page[]) => {
             pages.value = response;
+            isLoading.value = false;
         });
     });
 </script>
 
 <template>
     <content-wrapper title="Страницы">
-        <content-table :entities="pages"></content-table>
+        <the-preloader v-if="isLoading" size="lg"></the-preloader>
+        <content-table v-else :entities="pages"></content-table>
     </content-wrapper>
 </template>

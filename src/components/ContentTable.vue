@@ -105,6 +105,7 @@
     .the-table__head {
         position: relative;
         padding-right: 32px;
+        font-weight: 600;
         background-color: #f4f7f8;
     }
 

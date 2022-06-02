@@ -3,10 +3,12 @@ import App from "@/App.vue";
 import router from "@/router";
 import { initApi } from "@/api";
 import "@/assets/scss/index.scss";
+import ThePreloader from "@/components/ThePreloader.vue";
 
 const app = createApp(App);
 
 app.use(router).mount("#app");
+app.component("the-preloader", ThePreloader);
 
 /*
 http://localhost:8000

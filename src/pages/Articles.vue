@@ -8,15 +8,19 @@
     const $api = inject("$api") as Api;
     const articles = ref<Article[]>([]);
 
+    const isLoading = ref(true);
+
     onMounted(() => {
         $api.articles.getAll().then((response: Article[]) => {
             articles.value = response;
+            isLoading.value = false;
         });
     });
 </script>
 
 <template>
     <content-wrapper title="Статьи">
-        <content-table :entities="articles"></content-table>
+        <the-preloader v-if="isLoading || true" size="lg"></the-preloader>
+        <content-table v-else :entities="articles"></content-table>
     </content-wrapper>
 </template>

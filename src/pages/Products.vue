@@ -8,15 +8,19 @@
     const $api = inject("$api") as Api;
     const products = ref<Product[]>([]);
 
+    const isLoading = ref(true);
+
     onMounted(() => {
         $api.products.getAll().then((response: Product[]) => {
             products.value = response;
+            isLoading.value = false;
         });
     });
 </script>
 
 <template>
     <content-wrapper title="Товары">
-        <content-table :entities="products"></content-table>
+        <the-preloader v-if="isLoading" size="lg"></the-preloader>
+        <content-table v-else :entities="products"></content-table>
     </content-wrapper>
 </template>
