@@ -1,14 +1,14 @@
 import axios, { AxiosInstance } from "axios";
-import { productsApi } from "@/api/requests/products";
-import { reviewsApi } from "@/api/requests/reviews";
-import { articlesApi } from "@/api/requests/articles";
-import { pagesApi } from "@/api/requests/pages";
+import { ProductsApi } from "@/api/requests/products";
+import { ReviewsApi } from "@/api/requests/reviews";
+import { ArticlesApi } from "@/api/requests/articles";
+import { PagesApi } from "@/api/requests/pages";
 
 export interface Api {
-    products: object;
-    reviews: object;
-    articles: object;
-    pages: object;
+    products: ProductsApi;
+    reviews: ReviewsApi;
+    articles: ArticlesApi;
+    pages: PagesApi;
 }
 
 const createApi = (baseURL: string): AxiosInstance => {
@@ -17,10 +17,10 @@ const createApi = (baseURL: string): AxiosInstance => {
 
 const setupApi = (api: AxiosInstance): Api => {
     return {
-        products: productsApi(api),
-        reviews: reviewsApi(api),
-        articles: articlesApi(api),
-        pages: pagesApi(api),
+        products: new ProductsApi(api),
+        reviews: new ReviewsApi(api),
+        articles: new ArticlesApi(api),
+        pages: new PagesApi(api),
     };
 };
 

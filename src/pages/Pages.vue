@@ -5,7 +5,7 @@
     import { Page } from "@/types/pages";
     import { Api } from "@/api";
 
-    const $api: Api = inject("$api");
+    const $api = inject("$api") as Api;
     const pages = ref<Page[]>([]);
 
     onMounted(() => {

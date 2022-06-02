@@ -3,8 +3,9 @@
     import ContentTable from "@/components/ContentTable.vue";
     import ContentWrapper from "@/components/ContentWrapper.vue";
     import { Article } from "@/types/articles";
+    import { Api } from "@/api";
 
-    const $api: any = inject("$api");
+    const $api = inject("$api") as Api;
     const articles = ref<Article[]>([]);
 
     onMounted(() => {

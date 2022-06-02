@@ -95,7 +95,7 @@
 
     .the-table__row {
         display: flex;
-        &:nth-child(even) {
+        &:nth-child(odd) {
             .the-table__cell {
                 background-color: #f9fcfd;
             }
