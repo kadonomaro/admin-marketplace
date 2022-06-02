@@ -6,34 +6,29 @@ export const articlesApi = (api: AxiosInstance) => {
         /**
          * Get all articles
          */
-        async getAll(): Promise<Article[]> {
-            return await api.get("api/articles").then(({ data }) => data);
+        async getAll() {
+            return await api.get<Article[]>("api/articles").then(({ data }) => data);
         },
 
         /**
          * Create article
-         * @param { Object } data
-         * @return {Promise<Object>}
          */
-        async create({ data }: any) {
-            return await api.post("api/articles", { data }).then(({ data }) => data);
+        async create(article: Partial<Article>) {
+            return await api.post<Article>("api/articles", { data: article }).then(({ data }) => data);
         },
 
         /**
          * Update article
-         * @param { Object } data
-         * @return {Promise<Object>}
          */
-        async update({ data }: any) {
-            return await api.put("api/articles", { data }).then(({ data }) => data);
+        async update(article: Partial<Article>) {
+            return await api.put<Article>("api/articles", { data: article }).then(({ data }) => data);
         },
 
         /**
          * Delete article by ID
-         * @return {Promise<Object>}
          */
         async delete(id: string | number) {
-            return await api.delete(`api/articles/${id}`).then(({ data }) => data);
+            return await api.delete<Article>(`api/articles/${id}`).then(({ data }) => data);
         },
     };
 };

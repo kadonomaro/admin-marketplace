@@ -6,34 +6,29 @@ export const reviewsApi = (api: AxiosInstance) => {
         /**
          * Get all reviews
          */
-        async getAll(): Promise<Review> {
-            return await api.get("api/reviews").then(({ data }) => data);
+        async getAll() {
+            return await api.get<Review[]>("api/reviews").then(({ data }) => data);
         },
 
         /**
          * Create review
-         * @param { Object } data
-         * @return {Promise<Object>}
          */
-        async create({ data }: any) {
-            return await api.post("api/reviews", { data }).then(({ data }) => data);
+        async create(review: Partial<Review>) {
+            return await api.post<Review>("api/reviews", { data: review }).then(({ data }) => data);
         },
 
         /**
          * Update review
-         * @param { Object } data
-         * @return {Promise<Object>}
          */
-        async update({ data }: any) {
-            return await api.put("api/reviews", { data }).then(({ data }) => data);
+        async update(review: Partial<Review>) {
+            return await api.put<Review>("api/reviews", { data: review }).then(({ data }) => data);
         },
 
         /**
          * Delete review by ID
-         * @return {Promise<Object>}
          */
         async delete(id: string | number) {
-            return await api.delete(`api/reviews/${id}`).then(({ data }) => data);
+            return await api.delete<Review>(`api/reviews/${id}`).then(({ data }) => data);
         },
     };
 };
