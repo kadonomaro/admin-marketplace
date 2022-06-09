@@ -15,6 +15,14 @@
             reviews.value = response;
             isLoading.value = false;
         });
+
+        $api.reviews.create({
+            name: "name",
+            author: "Test Testov",
+            description: "text1",
+            source: "test.test.ru",
+            isActive: false,
+        });
     });
 </script>
 
