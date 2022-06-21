@@ -4,7 +4,7 @@ import { ReviewsApi } from "@/api/requests/reviews";
 import { ArticlesApi } from "@/api/requests/articles";
 import { PagesApi } from "@/api/requests/pages";
 
-export interface Api {
+interface Api {
     products: ProductsApi;
     reviews: ReviewsApi;
     articles: ArticlesApi;
