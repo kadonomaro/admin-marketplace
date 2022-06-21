@@ -1,28 +1,22 @@
 <script setup lang="ts">
-    import { inject, onMounted, ref } from "vue";
+    import { onMounted, ref } from "vue";
+    import { storeToRefs } from "pinia";
+    import { useReviewsStore } from "@/store/reviews";
     import ContentTable from "@/components/ContentTable.vue";
     import ContentWrapper from "@/components/ContentWrapper.vue";
-    import { Review } from "@/types/reviews";
-    import { Api } from "@/api";
 
-    const $api = inject("$api") as Api;
-    const reviews = ref<Review[]>([]);
+    const reviewsStore = useReviewsStore();
+    const { reviews } = storeToRefs(reviewsStore);
+    const { getReviews } = reviewsStore;
 
     const isLoading = ref(true);
 
     onMounted(() => {
-        $api.reviews.getAll().then((response: Review[]) => {
-            reviews.value = response;
-            isLoading.value = false;
-        });
-
-        $api.reviews.create({
-            name: "name",
-            author: "Test Testov",
-            description: "text1",
-            source: "test.test.ru",
-            isActive: false,
-        });
+        if (reviews.value.length === 0) {
+            getReviews().then(() => {
+                isLoading.value = false;
+            });
+        }
     });
 </script>
 

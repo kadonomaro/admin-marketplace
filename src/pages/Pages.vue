@@ -1,20 +1,22 @@
 <script setup lang="ts">
-    import { inject, onMounted, ref } from "vue";
+    import { onMounted, ref } from "vue";
+    import { storeToRefs } from "pinia";
+    import { usePagesStore } from "@/store/pages";
     import ContentTable from "@/components/ContentTable.vue";
     import ContentWrapper from "@/components/ContentWrapper.vue";
-    import { Page } from "@/types/pages";
-    import { Api } from "@/api";
 
-    const $api = inject("$api") as Api;
-    const pages = ref<Page[]>([]);
+    const pagesStore = usePagesStore();
+    const { pages } = storeToRefs(pagesStore);
+    const { getPages } = pagesStore;
 
     const isLoading = ref(true);
 
     onMounted(() => {
-        $api.pages.getAll().then((response: Page[]) => {
-            pages.value = response;
-            isLoading.value = false;
-        });
+        if (pages.value.length === 0) {
+            getPages().then(() => {
+                isLoading.value = false;
+            });
+        }
     });
 </script>
 

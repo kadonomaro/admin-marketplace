@@ -1,5 +1,4 @@
 <script setup lang="ts">
-    import { onMounted, inject } from "vue";
     import DashboardCard from "@/components/DashboardCard.vue";
 
     const cards = [
@@ -8,9 +7,6 @@
         { title: "Статьи", route: "Articles" },
         { title: "Отзывы", route: "Reviews" },
     ];
-    onMounted(() => {
-        const $api = inject("$api");
-    });
 </script>
 
 <template>

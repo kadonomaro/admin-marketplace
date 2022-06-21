@@ -11,11 +11,9 @@ export interface Api {
     pages: PagesApi;
 }
 
-const createApi = (baseURL: string): AxiosInstance => {
-    return axios.create({ baseURL });
-};
+const createApi = (baseURL: string): Api => {
+    const api: AxiosInstance = axios.create({ baseURL });
 
-const setupApi = (api: AxiosInstance): Api => {
     return {
         products: new ProductsApi(api),
         reviews: new ReviewsApi(api),
@@ -24,6 +22,8 @@ const setupApi = (api: AxiosInstance): Api => {
     };
 };
 
-export const initApi = (baseURL: string) => {
-    return setupApi(createApi(baseURL));
-};
+/*
+http://localhost:8000
+https://api-marketplace-pi.vercel.app
+ */
+export const $api = createApi("https://api-marketplace-pi.vercel.app");

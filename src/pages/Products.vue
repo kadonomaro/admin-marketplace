@@ -1,20 +1,22 @@
 <script setup lang="ts">
-    import { inject, onMounted, ref } from "vue";
+    import { onMounted, ref } from "vue";
+    import { storeToRefs } from "pinia";
+    import { useProductsStore } from "@/store/products";
     import ContentTable from "@/components/ContentTable.vue";
     import ContentWrapper from "@/components/ContentWrapper.vue";
-    import { Product } from "@/types/products";
-    import { Api } from "@/api";
 
-    const $api = inject("$api") as Api;
-    const products = ref<Product[]>([]);
+    const productsStore = useProductsStore();
+    const { products } = storeToRefs(productsStore);
+    const { getProducts } = productsStore;
 
     const isLoading = ref(true);
 
     onMounted(() => {
-        $api.products.getAll().then((response: Product[]) => {
-            products.value = response;
-            isLoading.value = false;
-        });
+        if (products.value.length === 0) {
+            getProducts().then(() => {
+                isLoading.value = false;
+            });
+        }
     });
 </script>
 
