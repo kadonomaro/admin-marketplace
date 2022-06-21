@@ -1,4 +1,5 @@
 import { createApp } from "vue";
+import { createPinia } from "pinia";
 import App from "@/App.vue";
 import router from "@/router";
 import { initApi } from "@/api";
@@ -7,7 +8,7 @@ import ThePreloader from "@/components/ThePreloader.vue";
 
 const app = createApp(App);
 
-app.use(router).mount("#app");
+app.use(router).use(createPinia()).mount("#app");
 app.component("the-preloader", ThePreloader);
 
 /*
