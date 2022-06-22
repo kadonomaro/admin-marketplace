@@ -2,10 +2,10 @@
     import DashboardCard from "@/components/DashboardCard.vue";
 
     const cards = [
-        { title: "Страницы", route: "Pages" },
-        { title: "Товары", route: "Products" },
-        { title: "Статьи", route: "Articles" },
-        { title: "Отзывы", route: "Reviews" },
+        { title: "Страницы", route: "Pages", image: "pages.svg" },
+        { title: "Товары", route: "Products", image: "products.svg" },
+        { title: "Статьи", route: "Articles", image: "articles.svg" },
+        { title: "Отзывы", route: "Reviews", image: "reviews.svg" },
     ];
 </script>
 

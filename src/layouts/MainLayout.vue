@@ -4,23 +4,30 @@
 
 <template>
     <div class="main-layout">
-        <aside class="main-layout__side">
-            <the-sidebar></the-sidebar>
-        </aside>
+        <div class="container">
+            <div class="main-layout__inner">
+                <aside class="main-layout__side">
+                    <the-sidebar></the-sidebar>
+                </aside>
 
-        <main class="main-layout__main">
-            <router-view />
-        </main>
+                <main class="main-layout__main">
+                    <router-view />
+                </main>
+            </div>
+        </div>
     </div>
 </template>
 
 <style lang="scss">
     .main-layout {
         min-height: 100vh;
+    }
+
+    .main-layout__inner {
         @include bp($bp-desktop-sm) {
             display: flex;
             align-items: flex-start;
-            padding: 16px;
+            padding: 16px 0;
         }
     }
 

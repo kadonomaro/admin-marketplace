@@ -2,7 +2,7 @@
     import TheIcon from "@/components/TheIcon.vue";
 
     const list = [
-        { title: "Dashboard", url: "Dashboard", icon: "arrow" },
+        { title: "Панель управления", url: "Dashboard", icon: "arrow" },
         { title: "Страницы", url: "Pages", icon: "arrow" },
         { title: "Товары", url: "Products", icon: "arrow" },
         { title: "Статьи", url: "Articles", icon: "arrow" },
@@ -47,7 +47,7 @@
         color: $primary-text;
         text-decoration: none;
         transition: background-color 0.2s ease-in, color 0.2s ease-in;
-        border-radius: 18px;
+        border-radius: 12px;
         &:hover {
             background-color: $secondary-color;
         }
