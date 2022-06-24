@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import { onMounted } from "vue";
+import {onMounted, onServerPrefetch, ref} from "vue";
     import { storeToRefs } from "pinia";
     import { useArticlesStore } from "@/store/articles";
     import ContentTable from "@/components/ContentTable.vue";
@@ -9,15 +9,22 @@
     const { articles, isLoadingArticles } = storeToRefs(articlesStore);
     const { getArticles } = articlesStore;
 
+    const title = ref("");
+
     onMounted(() => {
         if (articles.value.length === 0) {
             getArticles();
         }
     });
+
+    onServerPrefetch(() => {
+        title.value = "Статьи";
+        // getArticles();
+    });
 </script>
 
 <template>
-    <content-wrapper title="Статьи">
+    <content-wrapper :title="title">
         <the-preloader v-if="isLoadingArticles" size="lg"></the-preloader>
         <content-table v-else :entities="articles"></content-table>
     </content-wrapper>

@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHistory, createMemoryHistory } from "vue-router";
 import Dashboard from "@/pages/Dashboard.vue";
 
 const routes = [
@@ -57,8 +57,12 @@ const routes = [
         component: () => import("../pages/Pages.vue"),
     },
 ];
-const router = createRouter({
-    history: createWebHistory(),
-    routes,
-});
-export default router;
+export default function () {
+    //@ts-ignore
+    const routerHistory = !import.meta.env.SSR ? createWebHistory() : createMemoryHistory();
+
+    return createRouter({
+        history: routerHistory,
+        routes
+    })
+}

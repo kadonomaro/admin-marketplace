@@ -1,11 +1,15 @@
-import { createApp } from "vue";
+import { createSSRApp } from "vue";
 import { createPinia } from "pinia";
 import App from "@/App.vue";
-import router from "@/router";
+import createRouter from "@/router";
 import "@/assets/scss/index.scss";
 import ThePreloader from "@/components/ThePreloader.vue";
 
-const app = createApp(App);
-
-app.use(router).use(createPinia()).mount("#app");
-app.component("the-preloader", ThePreloader);
+export function createApp() {
+    const app = createSSRApp(App);
+    const router = createRouter();
+    const store = createPinia();
+    app.use(router).use(store);
+    app.component("ThePreloader", ThePreloader);
+    return { app, router, store };
+}
