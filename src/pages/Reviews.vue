@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import { onMounted } from "vue";
+    import { onServerPrefetch, onMounted } from "vue";
     import { storeToRefs } from "pinia";
     import { useReviewsStore } from "@/store/reviews";
     import ContentTable from "@/components/ContentTable.vue";
@@ -8,6 +8,10 @@
     const reviewsStore = useReviewsStore();
     const { reviews, isLoadingReviews } = storeToRefs(reviewsStore);
     const { getReviews } = reviewsStore;
+
+    onServerPrefetch(async () => {
+       await getReviews();
+    });
 
     onMounted(() => {
         if (reviews.value.length === 0) {

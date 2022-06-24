@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "axios": "^0.25.0",
-    "compression": "^1.7.4",
     "express": "^4.18.1",
     "pinia": "^2.0.14",
     "vue": "^3.2.25",
@@ -21,6 +20,9 @@
   "devDependencies": {
     "@types/node": "^17.0.38",
     "@vitejs/plugin-vue": "^2.3.3",
+    "@vue/compiler-sfc": "^3.2.37",
+    "@vue/server-renderer": "^3.2.37",
+    "compression": "^1.7.4",
     "cross-env": "^7.0.3",
     "eslint": "^8.9.0",
     "eslint-plugin-vue": "^8.4.1",
