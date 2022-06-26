@@ -36,16 +36,20 @@
                 ></base-input>
             </div>
 
-            <base-button class="content-create__button">Сохранить</base-button>
+            <div class="content-create__row">
+                <base-button class="content-create__button">Сохранить</base-button>
+            </div>
         </form>
     </div>
 </template>
 
 <style lang="scss">
     .content-create {
+        margin-top: 32px;
         font-size: 14px;
         text-align: left;
-        border-radius: 12px;
+        border-radius: $border-radius--md;
+        box-shadow: $box-shadow;
         overflow: hidden;
     }
 

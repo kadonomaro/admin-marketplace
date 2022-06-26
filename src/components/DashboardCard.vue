@@ -1,7 +1,11 @@
 <script setup lang="ts">
-    type CardType = { title: string; route: string; image: string };
-
-    const props = defineProps<{ card: CardType }>();
+    const props = defineProps<{
+        card: {
+            title: string;
+            route: string;
+            image: string;
+        };
+    }>();
 </script>
 
 <template>
@@ -18,8 +22,8 @@
         color: $primary-text;
         text-decoration: none;
         border: 2px solid transparent;
-        border-radius: 20px;
-        box-shadow: 0 0 25px #f2f2f5;
+        border-radius: $border-radius--lg;
+        box-shadow: $box-shadow;
         transition: border-color 0.2s ease-in, box-shadow 0.2s ease-in;
         overflow: hidden;
         &:hover {

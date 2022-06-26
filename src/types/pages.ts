@@ -1,9 +1,9 @@
-export interface Page {
+import { Entity } from "@/types/index";
+
+export interface Page extends Entity {
     slug: string;
     seo: PageSeo;
-    name?: string;
     content?: string;
-    isActive: boolean;
 }
 
 interface PageSeo {

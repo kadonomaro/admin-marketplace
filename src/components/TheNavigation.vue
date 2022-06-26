@@ -47,7 +47,7 @@
         color: $primary-text;
         text-decoration: none;
         transition: background-color 0.2s ease-in, color 0.2s ease-in;
-        border-radius: 12px;
+        border-radius: $border-radius--md;
         &:hover {
             background-color: $secondary-color;
         }

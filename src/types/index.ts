@@ -3,3 +3,11 @@ export interface FormFields {
     label: string;
     type?: string;
 }
+
+export interface Entity {
+    readonly id: string;
+    readonly createdAt: string;
+    readonly updatedAt: string;
+    name: string;
+    isActive: boolean;
+}

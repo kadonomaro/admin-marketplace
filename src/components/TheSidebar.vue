@@ -14,7 +14,7 @@
     .the-sidebar {
         height: 100%;
         padding: 12px;
-        border-radius: 25px;
-        box-shadow: 0 0 25px #f2f2f5;
+        border-radius: $border-radius--lg;
+        box-shadow: $box-shadow;
     }
 </style>

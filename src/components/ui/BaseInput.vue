@@ -30,7 +30,7 @@
         display: block;
         width: 100%;
         padding: 9px 12px;
-        font-size: 16px;
+        font-size: 14px;
         line-height: 18px;
         border: 2px solid $primary-border;
         border-radius: $border-radius--md;

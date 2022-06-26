@@ -1,7 +1,7 @@
-export interface Article {
-    name: string;
+import { Entity } from "@/types/index";
+
+export interface Article extends Entity {
     text?: string;
     image: string;
     source?: string;
-    isActive: boolean;
 }

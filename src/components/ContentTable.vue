@@ -1,17 +1,14 @@
 <script setup lang="ts">
-    import { computed, PropType, ref } from "vue";
+    import { computed, ref } from "vue";
+    import { Entity } from "@/types";
     import TheIcon from "@/components/TheIcon.vue";
     import BaseCheckbox from "@/components/ui/BaseCheckbox.vue";
 
-    const props = defineProps({
-        entities: {
-            type: Object as PropType<any>,
-            required: true,
-            default: () => ({}),
-        },
+    const props = withDefaults(defineProps<{ entities: Entity[] }>(), {
+        entities: () => [],
     });
 
-    const sortProperty = ref("");
+    const sortProperty = ref<string>("");
     const setSortProperty = (property: string): void => {
         sortProperty.value = property;
     };
@@ -20,11 +17,11 @@
             return props.entities;
         }
         return [...props.entities].sort((a, b) => {
-            return a[sortProperty.value] > b[sortProperty.value] ? 1 : -1;
+            return a[sortProperty.value as keyof typeof a] > b[sortProperty.value as keyof typeof b] ? 1 : -1;
         });
     });
 
-    const dateFilter = (date: string): string => {
+    const dateFilter = (date: string | undefined): string => {
         if (!date) {
             return "-";
         }
@@ -56,7 +53,7 @@
             </div>
         </div>
 
-        <div class="content-table__row" v-for="entity in sortedEntities" :key="entity._id">
+        <div class="content-table__row" v-for="entity in sortedEntities" :key="entity.id">
             <div class="content-table__cell">
                 <base-checkbox v-model="entity.isActive"></base-checkbox>
             </div>
@@ -71,7 +68,8 @@
     .content-table {
         font-size: 14px;
         text-align: left;
-        border-radius: 12px;
+        border-radius: $border-radius--md;
+        box-shadow: $box-shadow;
         overflow: hidden;
     }
 
