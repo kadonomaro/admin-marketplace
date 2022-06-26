@@ -1,17 +1,15 @@
 <script setup lang="ts">
-    interface ComponentProps {
+    import { ref } from "vue";
+    import { FormFields } from "@/types";
+    import BaseInput from "@/components/ui/BaseInput.vue";
+
+    type ComponentProps = {
         title: string;
         fields: FormFields[];
-    }
-
-    import { ref } from "vue";
-    import BaseInput from "@/components/ui/BaseInput.vue";
-    import { FormFields } from "@/types";
+    };
 
     const emit = defineEmits(["on-create"]);
-
     const props = defineProps<ComponentProps>();
-
     const fieldsModel = ref({});
 
     const onSubmit = () => {

@@ -9,7 +9,7 @@ interface StoreState {
 
 export const useProductsStore = defineStore("productsStore", {
     state: (): StoreState => ({
-        products: [] as Product[],
+        products: [],
         isLoadingProducts: false,
     }),
 

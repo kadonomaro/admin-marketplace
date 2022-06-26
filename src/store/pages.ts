@@ -9,11 +9,16 @@ interface StoreState {
 
 export const usePagesStore = defineStore("pagesStore", {
     state: (): StoreState => ({
-        pages: [] as Page[],
+        pages: [],
         isLoadingPages: false,
     }),
 
     actions: {
+        createPage(page: Page) {
+            $api.pages.create(page).then((response: Page) => {
+                this.pages.push(page);
+            });
+        },
         getPages() {
             this.isLoadingPages = true;
             return $api.pages.getAll().then((response: Page[]) => {

@@ -2,11 +2,11 @@
     const props = defineProps({
         modelValue: Boolean,
     });
-
     const emit = defineEmits(["update:modelValue"]);
 
-    const updateValue = (event: any) => {
-        emit("update:modelValue", event.target.checked);
+    const updateValue = (event: Event) => {
+        const target = event.target as HTMLInputElement;
+        emit("update:modelValue", target.checked);
     };
 </script>
 

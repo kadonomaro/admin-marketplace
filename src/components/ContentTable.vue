@@ -9,10 +9,6 @@
             required: true,
             default: () => ({}),
         },
-        name: {
-            type: String,
-            default: "name",
-        },
     });
 
     const sortProperty = ref("");
@@ -64,7 +60,7 @@
             <div class="content-table__cell">
                 <base-checkbox v-model="entity.isActive"></base-checkbox>
             </div>
-            <div class="content-table__cell">{{ entity[props.name] }}</div>
+            <div class="content-table__cell">{{ entity.name }}</div>
             <div class="content-table__cell">{{ dateFilter(entity.createdAt) }}</div>
             <div class="content-table__cell">{{ dateFilter(entity.updatedAt) }}</div>
         </div>

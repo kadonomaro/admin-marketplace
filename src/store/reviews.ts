@@ -9,11 +9,16 @@ interface StoreState {
 
 export const useReviewsStore = defineStore("reviewsStore", {
     state: (): StoreState => ({
-        reviews: [] as Review[],
+        reviews: [],
         isLoadingReviews: false,
     }),
 
     actions: {
+        createReview(review: Review) {
+            $api.reviews.create(review).then((response: Review) => {
+                this.reviews.push(response);
+            });
+        },
         getReviews() {
             this.isLoadingReviews = true;
             return $api.reviews.getAll().then((response: Review[]) => {
