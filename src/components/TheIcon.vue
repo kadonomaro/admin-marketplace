@@ -1,7 +1,10 @@
 <script setup lang="ts">
     import { computed } from "vue";
 
-    const props = defineProps<{ name: string }>();
+    type ComponentProps = {
+        name: "close" | "arrow" | "upload" | "download" | "new" | "plus" | "minus" | "trash" | "sort" | "list";
+    };
+    const props = defineProps<ComponentProps>();
 
     const getIconUrl = computed(() => {
         return `/static/sprites.svg#${props.name}`;

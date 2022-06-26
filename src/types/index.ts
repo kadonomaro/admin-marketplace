@@ -11,3 +11,5 @@ export interface Entity {
     name: string;
     isActive: boolean;
 }
+
+export type ComponentType = "list" | "create";

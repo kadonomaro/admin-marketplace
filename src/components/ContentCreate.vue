@@ -45,7 +45,6 @@
 
 <style lang="scss">
     .content-create {
-        margin-top: 32px;
         font-size: 14px;
         text-align: left;
         border-radius: $border-radius--md;
