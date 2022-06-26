@@ -1,9 +1,6 @@
 <script setup lang="ts">
-    const props = defineProps({
-        size: {
-            type: String,
-            default: "sm",
-        },
+    const props = withDefaults(defineProps<{ size: string }>(), {
+        size: "sm",
     });
 </script>
 

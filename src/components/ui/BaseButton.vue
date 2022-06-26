@@ -1,8 +1,4 @@
 <script setup lang="ts">
-    const props = defineProps({
-        text: String,
-    });
-
     const emit = defineEmits(["on-click"]);
 
     const onClick = () => {

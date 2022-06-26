@@ -1,10 +1,7 @@
 <script setup lang="ts">
-    const props = defineProps({
-        card: {
-            type: Object,
-            default: () => ({}),
-        },
-    });
+    type CardType = { title: string; route: string; image: string };
+
+    const props = defineProps<{ card: CardType }>();
 </script>
 
 <template>

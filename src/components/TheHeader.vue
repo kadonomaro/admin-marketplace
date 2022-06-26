@@ -1,17 +1,6 @@
 <script setup lang="ts">
-    import { computed, onMounted } from "vue";
     import TheHeaderTop from "@/components/TheHeaderTop.vue";
     import TheHeaderMain from "@/components/TheHeaderMain.vue";
-
-    const props = defineProps({
-        test: String,
-    });
-
-    onMounted(() => {
-        console.log(props.test);
-    });
-
-    const computeTest = computed(() => "111" + props.test);
 </script>
 
 <template>
