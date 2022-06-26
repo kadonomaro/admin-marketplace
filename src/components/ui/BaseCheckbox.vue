@@ -6,7 +6,6 @@
     const emit = defineEmits(["update:modelValue"]);
 
     const updateValue = (event: any) => {
-        console.dir(event.target);
         emit("update:modelValue", event.target.checked);
     };
 </script>

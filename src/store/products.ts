@@ -14,6 +14,11 @@ export const useProductsStore = defineStore("productsStore", {
     }),
 
     actions: {
+        createProduct(product: Product) {
+            $api.products.create(product).then((response: Product) => {
+                this.products.push(product);
+            });
+        },
         getProducts() {
             this.isLoadingProducts = true;
             return $api.products.getAll().then((response: Product[]) => {
