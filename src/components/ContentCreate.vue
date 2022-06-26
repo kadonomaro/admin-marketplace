@@ -2,6 +2,7 @@
     import { ref } from "vue";
     import { FormFields } from "@/types";
     import BaseInput from "@/components/ui/BaseInput.vue";
+    import BaseButton from "@/components/ui/BaseButton.vue";
 
     type ComponentProps = {
         title: string;
@@ -10,7 +11,9 @@
 
     const emit = defineEmits(["on-create"]);
     const props = defineProps<ComponentProps>();
-    const fieldsModel = ref({});
+    const fieldsModel = ref({
+        isActive: true,
+    });
 
     const onSubmit = () => {
         emit("on-create", fieldsModel.value);
@@ -25,6 +28,7 @@
             <div v-for="field in props.fields" class="content-create__row">
                 <div class="content-create__label">{{ field.label }}</div>
                 <base-input
+                    class="content-create__input"
                     :name="field.name"
                     :type="field.type"
                     :label="field.label"
@@ -32,7 +36,7 @@
                 ></base-input>
             </div>
 
-            <button>Сохранить</button>
+            <base-button class="content-create__button">Сохранить</base-button>
         </form>
     </div>
 </template>
@@ -63,5 +67,13 @@
 
     .content-create__label {
         flex-grow: 1;
+    }
+
+    .content-create__input {
+        flex-basis: 300px;
+    }
+
+    .content-create__button {
+        max-width: 160px;
     }
 </style>

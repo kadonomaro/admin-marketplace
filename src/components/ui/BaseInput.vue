@@ -29,9 +29,11 @@
     .base-input__field {
         display: block;
         width: 100%;
-        padding: 10px 12px;
+        padding: 9px 12px;
+        font-size: 16px;
+        line-height: 18px;
         border: 2px solid $primary-border;
-        border-radius: 7px;
+        border-radius: $border-radius--md;
         transition: border-color 0.2s ease-in;
         &:hover,
         &:focus {

@@ -47,7 +47,7 @@
         width: 24px;
         height: 24px;
         border: 2px solid $primary-border;
-        border-radius: 7px;
+        border-radius: $border-radius--sm;
         svg {
             opacity: 0;
             transition: opacity 0.2s ease-in;
