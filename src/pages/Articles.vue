@@ -14,8 +14,9 @@
     const { createArticle, getArticles } = articlesStore;
 
     const onCreateArticle = (article: Article) => {
-        createArticle(article);
-        component.value = "create";
+        createArticle(article).then(() => {
+            component.value = "list";
+        });
     };
 
     const fields: FormFields[] = [
@@ -66,8 +67,7 @@
 </template>
 
 <style lang="scss">
-    .content-controls {
-        display: flex;
+    .content-wrapper__controls {
         margin-bottom: 24px;
     }
 </style>

@@ -15,7 +15,7 @@ export const useArticlesStore = defineStore("articlesStore", {
 
     actions: {
         createArticle(article: Article) {
-            $api.articles.create(article).then((response: Article) => {
+            return $api.articles.create(article).then((response: Article) => {
                 this.articles.push(response);
             });
         },

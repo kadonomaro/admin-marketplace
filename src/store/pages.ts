@@ -15,7 +15,7 @@ export const usePagesStore = defineStore("pagesStore", {
 
     actions: {
         createPage(page: Page) {
-            $api.pages.create(page).then((response: Page) => {
+            return $api.pages.create(page).then((response: Page) => {
                 this.pages.push(page);
             });
         },

@@ -42,6 +42,7 @@
     }
 
     .content-controls__button {
+        max-width: 140px;
         margin: 0 4px;
     }
 </style>

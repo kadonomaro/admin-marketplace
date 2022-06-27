@@ -1,15 +1,23 @@
 <script setup lang="ts">
-    import { onMounted } from "vue";
+    import { onMounted, ref } from "vue";
     import { storeToRefs } from "pinia";
     import { useReviewsStore } from "@/store/reviews";
-    import { FormFields } from "@/types";
+    import { ComponentType, FormFields } from "@/types";
+    import { Review } from "@/types/reviews";
     import ContentTable from "@/components/ContentTable.vue";
     import ContentWrapper from "@/components/ContentWrapper.vue";
     import ContentCreate from "@/components/ContentCreate.vue";
+    import ContentControls from "@/components/ContentControls.vue";
 
     const reviewsStore = useReviewsStore();
     const { reviews, isLoadingReviews } = storeToRefs(reviewsStore);
     const { createReview, getReviews } = reviewsStore;
+
+    const onCreateProduct = (review: Review) => {
+        createReview(review).then(() => {
+            component.value = "list";
+        });
+    };
 
     const fields: FormFields[] = [
         {
@@ -34,6 +42,11 @@
         },
     ];
 
+    const component = ref<ComponentType>("list");
+    const onSetComponent = (name: ComponentType) => {
+        component.value = name;
+    };
+
     onMounted(() => {
         if (reviews.value.length === 0) {
             getReviews();
@@ -43,8 +56,23 @@
 
 <template>
     <content-wrapper title="Отзывы">
-        <the-preloader v-if="isLoadingReviews" size="lg"></the-preloader>
-        <content-table v-else :entities="reviews"></content-table>
-        <content-create title="Создать отзыв" :fields="fields" @on-create="createReview"></content-create>
+        <div class="content-wrapper__controls">
+            <content-controls :component="component" @on-set-component="onSetComponent"></content-controls>
+        </div>
+
+        <template v-if="component === 'list'">
+            <the-preloader v-if="isLoadingReviews" size="lg"></the-preloader>
+            <content-table v-else :entities="reviews"></content-table>
+        </template>
+
+        <template v-if="component === 'create'">
+            <content-create title="Создать отзыв" :fields="fields" @on-create="onCreateProduct"></content-create>
+        </template>
     </content-wrapper>
 </template>
+
+<style lang="scss">
+    .content-wrapper__controls {
+        margin-bottom: 24px;
+    }
+</style>

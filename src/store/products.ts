@@ -15,7 +15,7 @@ export const useProductsStore = defineStore("productsStore", {
 
     actions: {
         createProduct(product: Product) {
-            $api.products.create(product).then((response: Product) => {
+            return $api.products.create(product).then((response: Product) => {
                 this.products.push(product);
             });
         },

@@ -15,7 +15,7 @@ export const useReviewsStore = defineStore("reviewsStore", {
 
     actions: {
         createReview(review: Review) {
-            $api.reviews.create(review).then((response: Review) => {
+            return $api.reviews.create(review).then((response: Review) => {
                 this.reviews.push(response);
             });
         },
