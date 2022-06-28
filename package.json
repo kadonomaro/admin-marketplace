@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@madrobotsru/madrobots-checkout": "^0.0.3",
     "axios": "^0.25.0",
     "pinia": "^2.0.14",
     "vue": "^3.2.25",
