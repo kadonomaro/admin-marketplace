@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import { ref } from "vue";
+    import { reactive } from "vue";
     import { FormFields } from "@/types";
     import BaseInput from "@/components/ui/BaseInput.vue";
     import BaseButton from "@/components/ui/BaseButton.vue";
@@ -11,12 +11,12 @@
 
     const emit = defineEmits(["on-create"]);
     const props = defineProps<ComponentProps>();
-    const fieldsModel = ref({
+    const fieldsModel = reactive({
         isActive: true,
     });
 
     const onSubmit = () => {
-        emit("on-create", fieldsModel.value);
+        emit("on-create", fieldsModel);
     };
 </script>
 

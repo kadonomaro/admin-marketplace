@@ -9,9 +9,8 @@
     import ContentCreate from "@/components/ContentCreate.vue";
     import ContentControls from "@/components/ContentControls.vue";
 
-    const pagesStore = usePagesStore();
-    const { pages, isLoadingPages } = storeToRefs(pagesStore);
-    const { createPage, getPages } = pagesStore;
+    const { pages, isLoadingPages } = storeToRefs(usePagesStore());
+    const { createPage, getPages } = usePagesStore();
 
     const onCreatePage = (page: Page) => {
         createPage(page).then(() => {

@@ -9,9 +9,8 @@
     import ContentCreate from "@/components/ContentCreate.vue";
     import ContentControls from "@/components/ContentControls.vue";
 
-    const articlesStore = useArticlesStore();
-    const { articles, isLoadingArticles } = storeToRefs(articlesStore);
-    const { createArticle, getArticles } = articlesStore;
+    const { articles, isLoadingArticles } = storeToRefs(useArticlesStore());
+    const { createArticle, getArticles } = useArticlesStore();
 
     const onCreateArticle = (article: Article) => {
         createArticle(article).then(() => {

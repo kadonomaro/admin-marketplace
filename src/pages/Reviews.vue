@@ -9,9 +9,8 @@
     import ContentCreate from "@/components/ContentCreate.vue";
     import ContentControls from "@/components/ContentControls.vue";
 
-    const reviewsStore = useReviewsStore();
-    const { reviews, isLoadingReviews } = storeToRefs(reviewsStore);
-    const { createReview, getReviews } = reviewsStore;
+    const { reviews, isLoadingReviews } = storeToRefs(useReviewsStore());
+    const { createReview, getReviews } = useReviewsStore();
 
     const onCreateProduct = (review: Review) => {
         createReview(review).then(() => {

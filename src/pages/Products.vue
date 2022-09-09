@@ -9,9 +9,8 @@
     import ContentCreate from "@/components/ContentCreate.vue";
     import ContentControls from "@/components/ContentControls.vue";
 
-    const productsStore = useProductsStore();
-    const { products, isLoadingProducts } = storeToRefs(productsStore);
-    const { createProduct, getProducts } = productsStore;
+    const { products, isLoadingProducts } = storeToRefs(useProductsStore());
+    const { createProduct, getProducts } = useProductsStore();
 
     const onCreateProduct = (product: Product) => {
         createProduct(product).then(() => {
