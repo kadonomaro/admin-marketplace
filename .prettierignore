@@ -2,7 +2,6 @@
 .idea
 node_modules
 public
-tests
 *.svg
 *.png
 *.mp4
