@@ -1,12 +1,17 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Dashboard from "@/pages/Dashboard.vue";
 
+enum Layouts {
+    Main = "MainLayout",
+    Auth = "AuthLayout",
+}
+
 const routes = [
     {
         path: "/",
         name: "Dashboard",
         meta: {
-            layout: "Main",
+            layout: Layouts.Main,
             requiresAuth: true,
         },
         component: Dashboard,
@@ -15,7 +20,7 @@ const routes = [
         path: "/products",
         name: "Products",
         meta: {
-            layout: "Main",
+            layout: Layouts.Main,
             requiresAuth: true,
         },
         component: () => import("../pages/Products.vue"),
@@ -24,7 +29,7 @@ const routes = [
         path: "/articles",
         name: "Articles",
         meta: {
-            layout: "Main",
+            layout: Layouts.Main,
             requiresAuth: true,
         },
         component: () => import("../pages/Articles.vue"),
@@ -33,7 +38,7 @@ const routes = [
         path: "/articles",
         name: "Articles",
         meta: {
-            layout: "Main",
+            layout: Layouts.Main,
             requiresAuth: true,
         },
         component: () => import("../pages/Articles.vue"),
@@ -42,7 +47,7 @@ const routes = [
         path: "/reviews",
         name: "Reviews",
         meta: {
-            layout: "Main",
+            layout: Layouts.Main,
             requiresAuth: true,
         },
         component: () => import("../pages/Reviews.vue"),
@@ -51,10 +56,19 @@ const routes = [
         path: "/pages",
         name: "Pages",
         meta: {
-            layout: "Main",
+            layout: Layouts.Main,
             requiresAuth: true,
         },
         component: () => import("../pages/Pages.vue"),
+    },
+    {
+        path: "/auth",
+        name: "Auth",
+        meta: {
+            layout: Layouts.Auth,
+            requiresAuth: true,
+        },
+        component: () => import("../pages/Auth.vue"),
     },
 ];
 const router = createRouter({

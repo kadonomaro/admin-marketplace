@@ -3,12 +3,14 @@ import { ProductsApi } from "@/api/requests/products";
 import { ReviewsApi } from "@/api/requests/reviews";
 import { ArticlesApi } from "@/api/requests/articles";
 import { PagesApi } from "@/api/requests/pages";
+import { AuthApi } from "@/api/requests/auth";
 
 interface Api {
     products: ProductsApi;
     reviews: ReviewsApi;
     articles: ArticlesApi;
     pages: PagesApi;
+    auth: AuthApi;
 }
 
 const createApi = (baseURL: string): Api => {
@@ -19,6 +21,7 @@ const createApi = (baseURL: string): Api => {
         reviews: new ReviewsApi(api),
         articles: new ArticlesApi(api),
         pages: new PagesApi(api),
+        auth: new AuthApi(api),
     };
 };
 
